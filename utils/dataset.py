@@ -106,12 +106,20 @@ class BasicDataset(Dataset):
             if mmax[i] == mmin[i]:
                 mmax[i] += 0.000001     # avoid getting devided by 0
         res = (data - mmin) / (mmax - mmin)
+        #print('res.shape:', res.shape)
         res = np.c_[res,labels]
         np.random.shuffle(datasets)
         print('init data completed!')
         return datasets, data_length
     def __getitem__(self, i):
         data  = np.array(np.delete(self.data[i], -1))
+        data = np.concatenate([data,np.array([0]*8)])
+        #print('data.shape: ', data.shape)
+        data = data.reshape(6,-1)
+        data = np.expand_dims(data, axis=2)
+        # HWC to CHW
+        data = data.transpose((2, 0, 1))
+        #print('data.shape: ', data.shape)
         label = np.array(self.data[i],dtype=np.float32)[-1]
         #return {'data': torch.from_numpy(data), 'label':torch.from_numpy(label)}
         return {'data': torch.from_numpy(data), 'label':label}

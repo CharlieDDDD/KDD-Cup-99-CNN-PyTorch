@@ -19,7 +19,7 @@ from torch.utils.data import DataLoader, random_split
 
 from net import Net
 
-dir_train_data = 'dataset/train_data.csv'
+dir_train_data = 'dataset/train_data_all.csv'
 dir_test_data = 'dataset/test_data.csv'
 dir_checkpoint = 'checkpoints/'
 
@@ -79,7 +79,7 @@ def train_net(net,
     ''')
 
     optimizer = optim.RMSprop(net.parameters(), lr=lr, weight_decay=1e-8, momentum=0.9)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.9, patience=2)
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.9, patience=20)
 
     criterion = nn.CrossEntropyLoss()
 
@@ -108,12 +108,12 @@ def train_net(net,
 
                 optimizer.zero_grad()
                 loss.backward()
-                nn.utils.clip_grad_value_(net.parameters(), 0.001)
+                nn.utils.clip_grad_value_(net.parameters(), 0.1)
                 optimizer.step()
 
                 pbar.update(data.shape[0])
                 global_step += 1
-                if global_step % (len(train_dataset) // ( 5*batch_size)) == 0:
+                if global_step % (len(train_dataset) // (5*batch_size)) == 0:
                     for tag, value in net.named_parameters():
                         tag = tag.replace('.', '/')
                         writer.add_histogram('weights/' + tag, value.data.cpu().numpy(), global_step)
@@ -173,7 +173,7 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f'Using device {device}')
 
-    net = Net(input_dim=28, hidden_1=256, hidden_2=512, hidden_3=256, out_dim=5)
+    net = Net(input_dim=28, hidden_1=1024, hidden_2=512, hidden_3=256, out_dim=5)
     print(net)
     if args.load:
         net.load_state_dict(

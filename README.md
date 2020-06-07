@@ -6,7 +6,7 @@
 
 ## Network Structure
 
-(Linear => ReLU ) => (Linear => [dropout] => ReLU) * 2 => ( Linear )
+(Conv2d => ReLU )*2   => ( MaxPool2d )=> (Linear => [dropout] => ReLU) * 2 => ( Linear )
 
 ## Requirements
 
@@ -77,8 +77,8 @@ tensorboard --logdir=runs
 
 | training_dataset | accuracy |      |      |      |      |
 | :--------------: | :------: | :--: | :--: | :--: | :--: |
-|       10%        |  0.9238  |      |      |      |      |
-|       All        |  0.9064  |      |      |      |      |
+|       10%        |  0.939   |      |      |      |      |
+|       All        |  0.9393  |      |      |      |      |
 
 
 ### examples
