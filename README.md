@@ -39,7 +39,7 @@ python data_pre_processing_10%.py
 python data_pre_processing_all.py
 ```
 
-**Third**, copy train_data* and test.csv to the ./DNN_kdd99/dataset, and change the data path in train.py file
+**Third**, copy train_data* and test.csv to the ./dataset, and change the data path in train.py file
 
 
 ## Training
