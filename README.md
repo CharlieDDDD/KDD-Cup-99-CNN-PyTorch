@@ -59,7 +59,7 @@ optional arguments:
   -f LOAD, --load LOAD  Load model from a .pth file (default: False)
 ```
 
-**e.g.** (It's work)
+**e.g.** (It's working)
 
 ```shell script
 python train.py -e 20 -b 512 -l 0.0001
@@ -77,7 +77,7 @@ tensorboard --logdir=runs
 
 | training_dataset | accuracy |      |      |      |      |
 | :--------------: | :------: | :--: | :--: | :--: | :--: |
-|       10%        |   0.91   |      |      |      |      |
+|       10%        |   0.92   |      |      |      |      |
 |       All        |  0.9064  |      |      |      |      |
 
 
