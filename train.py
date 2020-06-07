@@ -19,7 +19,7 @@ from torch.utils.data import DataLoader, random_split
 
 from net import Net
 
-dir_train_data = 'dataset/train_data_all.csv'
+dir_train_data = 'dataset/train_data.csv'
 dir_test_data = 'dataset/test_data.csv'
 dir_checkpoint = 'checkpoints/'
 

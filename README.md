@@ -62,9 +62,6 @@ optional arguments:
 **e.g.** (It's work)
 
 ```shell script
-#using 10% training data
-python train.py -e 20 -b 512 -l 0.0001
-# or, using all training data
 python train.py -e 20 -b 512 -l 0.0001
 ```
 
@@ -80,7 +77,7 @@ tensorboard --logdir=runs
 
 | training_dataset | accuracy |      |      |      |      |
 | :--------------: | :------: | :--: | :--: | :--: | :--: |
-|       10%        |          |      |      |      |      |
+|       10%        |   0.91   |      |      |      |      |
 |       All        |  0.9064  |      |      |      |      |
 
 
