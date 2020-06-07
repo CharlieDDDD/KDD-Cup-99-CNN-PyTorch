@@ -41,10 +41,7 @@ def eval_net(net, loader, device, batch_size):
 
             loss = criterion(labels_pred, true_labels.long())
             val_loss += loss.data.item()*true_labels.size(0)
-            #print('the labels_pred: ', labels_pred.shape)
             _, pred = torch.max(labels_pred, 1)
-            #print('the  true_labels', true_labels.shape)
-           # print('the pred: ', pred.shape)
             num_correct = (true_labels == pred).sum()
             val_acc += num_correct.item()
             pbar.update()
@@ -67,8 +64,8 @@ def train_net(net,
 
 
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=8, pin_memory=True)
-    #val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=8, pin_memory=True, drop_last=True)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=8, pin_memory=True)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=8, pin_memory=True, drop_last=True)
+    #val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=8, pin_memory=True)
     n_train = len(train_loader)
     writer = SummaryWriter(comment=f'LR_{lr}_BS_{batch_size}')
     global_step = 0
@@ -94,7 +91,7 @@ def train_net(net,
             for batch in train_loader:
                 data = batch['data']
                 true_labels = batch['label']
-                #true_labels = torch.from_numpy(true_labels)
+
 
                 data = data.to(device=device, dtype=torch.float32)
                 true_labels = true_labels.to(device=device, dtype=torch.float32)
@@ -176,7 +173,7 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f'Using device {device}')
 
-    net = Net(input_dim=28, hidden_1=128, hidden_2=256, hidden_3=64, out_dim=5)
+    net = Net(input_dim=28, hidden_1=256, hidden_2=512, hidden_3=256, out_dim=5)
     print(net)
     if args.load:
         net.load_state_dict(
