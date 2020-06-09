@@ -22,11 +22,8 @@ class BasicDataset(Dataset):
         self.train_flag = train_flag
         self.data_path = data_path
         print('the data path: ',self.data_path)
-        #self.data_length = 0
-        #the ignored columns:9-21
-        self.ignored_col = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18,19,20,21]
         self.data, self.data_length =self.preprocess(data_path = self.data_path, train_flag = self.train_flag)
-        #self.data = np.delete(self.data, self.ignored_col, axis=1)
+
 
 
     def __len__(self):
@@ -114,14 +111,11 @@ class BasicDataset(Dataset):
     def __getitem__(self, i):
         data  = np.array(np.delete(self.data[i], -1))
         data = np.concatenate([data,np.array([0]*8)])
-        #print('data.shape: ', data.shape)
         data = data.reshape(6,-1)
         data = np.expand_dims(data, axis=2)
         # HWC to CHW
         data = data.transpose((2, 0, 1))
-        #print('data.shape: ', data.shape)
         label = np.array(self.data[i],dtype=np.float32)[-1]
-        #return {'data': torch.from_numpy(data), 'label':torch.from_numpy(label)}
         return {'data': torch.from_numpy(data), 'label':label}
 
 

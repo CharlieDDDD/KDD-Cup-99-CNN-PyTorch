@@ -1,6 +1,6 @@
 # KDD Cup 99 DNN PyTorch
 
-**note**: 1. Some code is inherited from others. 2. The project is still under development.
+**note**: 1. Some code is inherited from others. ~~2. The project is still under development.~~
 
 ​	This is a classification model with five classes (normal, DOS, R2L, U2R,PROBING).  Ignore the content features of TCP connection ( columns 10-22 of KDD Cup 99 dataset)  when training the model to adapt [this project, a kdd99 feature extractor](https://github.com/AI-IDS/kdd99_feature_extractor).
 
@@ -14,9 +14,11 @@
 
 <h2 id="Performance">To do list</h2>
 
-- [ ] optimize data initialization (standardization，deal error data, etc)
-- [ ] predict.py
-- [ ] more evaluation methods (Confusion Matrix, Recall, etc)
+
+
+- [ ] ~~optimize data initialization (standardization，deal error data, etc)~~
+- [ ] ~~predict.py~~
+- [ ] ~~more evaluation methods (Confusion Matrix, Recall, etc)~~
 
 ## Data Preparation
 
