@@ -82,12 +82,12 @@ tensorboard --logdir=runs
 
 ## Test
 
-To be done.
+~~To be done.~~
 
 ## Predict 
 
-To be done.
+~~To be done.~~
 
 ### Reference
 
-To be done.
+~~To be done.~~
