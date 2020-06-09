@@ -22,9 +22,9 @@ class Net(nn.Module):
         self.c2  = nn.Sequential(nn.Conv2d(64, 64, kernel_size=3,padding=1), 
                                 #nn.BatchNorm2d(64),
                                 nn.ReLU(inplace=True))
-        self.c3  = nn.Sequential(nn.Conv2d(64, 64, kernel_size=3,padding=1), 
+        #self.c3  = nn.Sequential(nn.Conv2d(64, 64, kernel_size=3,padding=1), 
                                 #nn.BatchNorm2d(64),
-                                nn.ReLU(inplace=True))                                
+                                #nn.ReLU(inplace=True))                                
         self.p1  = nn.Sequential(nn.MaxPool2d(kernel_size=2, stride=2))
         self.fc1 = nn.Sequential(nn.Linear(64*3*3,hidden_1), nn.Dropout(0.5),nn.ReLU(inplace=True))
         #self.fc2 = nn.Sequential(nn.Linear(hidden_1,hidden_3), nn.Dropout(0.5), nn.ReLU(inplace=True))
