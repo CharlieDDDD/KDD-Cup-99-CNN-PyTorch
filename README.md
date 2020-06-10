@@ -90,6 +90,9 @@ tensorboard --logdir=runs
 
 ### Reference
 
-[1] https://blog.csdn.net/qq_35733521/article/details/87889480
+[1]data pre-processing: https://blog.csdn.net/qq_35733521/article/details/87889480
 
-[2] some blogs
+[2] some blogs that I read:  https://blog.csdn.net/jbfsdzpp/article/details/44099849  and     https://blog.csdn.net/asialee_bird/article/details/80491256?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase
+
+
+
