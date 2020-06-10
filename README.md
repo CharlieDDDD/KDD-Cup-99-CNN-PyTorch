@@ -92,5 +92,4 @@ tensorboard --logdir=runs
 
 [1] https://blog.csdn.net/qq_35733521/article/details/87889480
 
-[2]
-
+[2] some blogs
