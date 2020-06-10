@@ -75,6 +75,8 @@ tensorboard --logdir=runs
 
 <h2 id="Performance">Performance</h2>
 
+**note**: the accuracy is the best one when training the model, but the model ( .pth ) that I provided is at the end of one epoch. 
+
 | training_dataset | accuracy |
 | :--------------: | :------: |
 |       10%        |  0.9395  |
