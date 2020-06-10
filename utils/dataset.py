@@ -28,7 +28,8 @@ class BasicDataset(Dataset):
 
     def __len__(self):
         return self.data_length
-
+#reference
+#https://blog.csdn.net/qq_35733521/article/details/87889480
     #read the data
     #@classmethod
     def preprocess(cls, data_path, train_flag):

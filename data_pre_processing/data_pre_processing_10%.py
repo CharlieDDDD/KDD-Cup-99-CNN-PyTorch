@@ -1,6 +1,8 @@
 import numpy as np
 import csv
 
+#refernce
+#https://blog.csdn.net/qq_35733521/article/details/87889480
 
 # the feature list
 def get_col_types():
